@@ -19,7 +19,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   
   $router->get('transactions',  ['uses' => 'TransactionsController@showTransactionsInPeriod']);
 
-  // $router->get('authors/{id}', ['uses' => 'AuthorController@showOneAuthor']);
+  $router->get('vendor', ['uses' => 'TransactionsController@showVendorPackages']);
 
   // $router->post('authors', ['uses' => 'AuthorController@create']);
 

@@ -22,7 +22,10 @@ $app = new Laravel\Lumen\Application(
 );
 
  $app->withFacades();
-
+	if (!class_exists('AzureUser')) {
+		class_alias('Metrogistics\AzureSocialite\AzureUserFacade', 'AzureUser');
+		// 'AzureUser' => Metrogistics\AzureSocialite\AzureUserFacade::class
+	}
  $app->withEloquent();
 
 /*
@@ -75,7 +78,7 @@ $app->singleton(
 | totally optional, so you are not required to uncomment this line.
 |
 */
-
+$app->register(Metrogistics\AzureSocialite\ServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
